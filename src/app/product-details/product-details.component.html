@@ -1,0 +1,23 @@
+<h3>List Of Products</h3>
+<div>
+  <ul>
+    <li
+      *ngFor="let product of productsArray"
+      [ngStyle]="{ 'list-style-type': 'none' }"
+    >
+      <h3>
+        Name: {{ product.name | uppercase }} <br />
+        Brand: {{ product.brand | uppercase }} <br />
+        Cost: {{ product.cost | currency: "Rs. " }} <br />
+        Category: {{ product.category | uppercase }}<br />
+        Quantity: {{ product.quantity | number }} <br />
+        Rating: {{ product.rating | number }} <br />
+        <p *ngIf="product.expiry != undefined" [ngStyle]="{ margin: '0px' }">
+          Expiry: {{ product.expiry | date }} <br />
+        </p>
+        <button (click)="addToCart(product)">Add to Cart</button>
+      </h3>
+    </li>
+  </ul>
+  <app-cart-details [cartDetails]="cartArray"></app-cart-details>
+</div>

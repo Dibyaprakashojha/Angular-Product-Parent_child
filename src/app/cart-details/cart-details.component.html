@@ -1,0 +1,18 @@
+<div>
+  <h3>Cart Details</h3>
+  <ul>
+    <li *ngFor="let cart of cartDetails" [style.list-style-type]="'none'">
+      <h3>
+        Name: {{ cart.name | uppercase }} <br />
+        Brand: {{ cart.brand | uppercase }} <br />
+        Cost: {{ cart.cost | currency: "Rs. " }} <br />
+        Category: {{ cart.category | uppercase }}<br />
+        Quantity: {{ cart.quantity | number }} <br />
+        Rating: {{ cart.rating | number }} <br />
+        <p *ngIf="cart.expiry != undefined" [ngStyle]="{ margin: '0px' }">
+          Expiry: {{ cart.expiry | date }} <br />
+        </p>
+      </h3>
+    </li>
+  </ul>
+</div>
